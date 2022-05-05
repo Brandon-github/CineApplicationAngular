@@ -1,0 +1,43 @@
+<div class="container py-5 d-flex justify-content-center align-items-center flex-wrap gap-2">
+  <div class="card m-auto" style="width: 40rem;">
+    <div class="card-head bg-dark text-white p-3">
+      <h3 class="text-center">Edit Movie</h3>
+    </div>
+    <div class="card-body">
+      <form action="">
+        <div class="form-group mb-3">
+          <label for="nombre_pelicula" class="form-label">Name</label>
+          <input type="text" [(ngModel)]="movie.nombre_pelicula" [ngModelOptions]="{standalone: true}" class="form-control" name="nombre_pelicula" id="nombre_pelicula" placeholder="Enter movie name">
+        </div>
+        <div class="form-group mb-3">
+          <label for="imagen_pelicula" class="form-label">Image</label>
+          <input type="text" [(ngModel)]="movie.imagen_pelicula" [ngModelOptions]="{standalone: true}" class="form-control" name="imagen_pelicula"  id="imagen_pelicula" placeholder="Enter movie name">
+        </div>
+        <div class="form-group mb-3">
+          <label for="duracion_pelicula" class="form-label">Duration</label>
+          <input type="number" [(ngModel)]="movie.duracion_pelicula" [ngModelOptions]="{standalone: true}" class="form-control" name="duracion_pelicula" id="duracion_pelicula" placeholder="Enter movie name" >
+        </div>
+        <div class="form-group mb-3">
+          <label for="nombre_categoria"  class="form-label">Category</label>
+          <select name="nombre_categoria" id="" class="form-control" [(ngModel)]="movie.id_categoria" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let category of categories" [value]="category.id_categoria">{{ category.nombre_categoria }}</option>
+          </select>
+          <div class="w-100 mt-3 d-flex gap-5">
+            <button type="submit" class="btn btn-success w-25" (click)="updateMovie()">Save</button>
+            <a [routerLink]="['/movies']" class="btn btn-danger w-25">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Preview Card -->
+  <div class="card" style="width: 18rem;">
+    <img [src]="movie.imagen_pelicula == '' ? '/assets/no-image.png' : movie.imagen_pelicula" class="card-img-top" alt="image movie">
+    <div class="card-body bg-dark text-white">
+      <h5 class="card-title">{{ movie.nombre_pelicula == '' ? 'Movie Name': movie.nombre_pelicula }}</h5>
+      <p>{{ movie.id_categoria == '' ? 'Category': movie.id_categoria }}</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, ipsa.</p>
+      <h6 class="card-subtitle">{{ movie.duracion_pelicula == '' ? '0': movie.duracion_pelicula }} Min</h6>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container py-5">
+  <h1 class="text-center display-3">Movies</h1>
+  <a class="btn btn-dark w-25 d-block m-auto" [routerLink]="['/movies/add']">Add Movie +</a>
+  <form action="" class="d-flex mb-5 mt-3 w-75 m-auto">
+    <div class="form-group w-100">
+      <input type="text" class="form-control" placeholder="What movie search you...">
+    </div>
+    <button type="submit" class="btn btn-dark mx-4 w-25">Search</button>
+  </form>
+  <div class="container-fluid d-flex justify-content-center flex-wrap gap-5 w-100">
+    <div class="card" style="width: 18rem;" *ngFor="let movie of movies">
+      <img [src]="movie.imagen_pelicula" class="card-img-top" alt="image movie">
+      <div class="card-body bg-dark text-white">
+        <h5 class="card-title">{{ movie.nombre_pelicula }}</h5>
+        <p>{{ movie.id_categoria }}</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, ipsa.</p>
+        <h6 class="card-subtitle">{{ movie.duracion_pelicula }} Min</h6>
+        <div class="mt-3 gap-3 d-flex">
+          <a [routerLink]="['/movies/edit', movie.id_pelicula]" class="btn btn-warning">Edit</a>
+          <button class="btn btn-danger" (click)="deleteMovie(movie.id_pelicula.toString())">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
