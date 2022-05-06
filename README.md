@@ -1,4 +1,4 @@
-# angularApplication
+# CineApplication
 
 Aplicacion de Peliculas tipo CRUD consumiendo una API res local
 
