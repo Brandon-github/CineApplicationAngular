@@ -50,10 +50,10 @@ controller.agregarPelicula = (req, res) => {
 }
 
 controller.actualizarPelicula = (req, res) => {
-    const { nombre, imagen, duracion, categoria } = req.body;
+    const { nombre_pelicula, imagen_pelicula, duracion_pelicula, id_categoria } = req.body;
     const { id } = req.params;
 
-    peliculaModel.actualizarPelicula([nombre, imagen, duracion, categoria, id], (err, rows, fields) => {
+    peliculaModel.actualizarPelicula([nombre_pelicula, imagen_pelicula, duracion_pelicula, id_categoria], (err, rows, fields) => {
         if (!err) {
             res.json({Status: `Usuario con id ${id} actualizado con exito`});
         } else {
