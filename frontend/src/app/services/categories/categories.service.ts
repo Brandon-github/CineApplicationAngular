@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Category } from '../../models/category/category';
+import Category, { CategoryOne } from '../../models/category/category';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -21,11 +21,11 @@ export class CategoriesService {
     return this.http.get(`${this.urlApi}/${id}`);
   }
 
-  addCategory(category: Category) {
+  addCategory(category: CategoryOne) {
     return this.http.post(`${this.urlApi}/agregar`, category);
   }
 
-  updateCategory(id: String, category: Category) {
+  updateCategory(id: String, category: CategoryOne) {
     return this.http.put(`${this.urlApi}/actualizar/${id}`, category);
   }
 
