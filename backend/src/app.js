@@ -9,7 +9,7 @@ const app = express();
 
 
 // Settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 
 // Middleware
 app.use(morgan('dev'));
