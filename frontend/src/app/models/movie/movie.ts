@@ -1,4 +1,4 @@
-export default interface Movie {
+export interface Movie {
   id_pelicula: number;
   nombre_pelicula: String;
   imagen_pelicula: String;

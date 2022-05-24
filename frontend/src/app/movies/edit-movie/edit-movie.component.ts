@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category/category';
 
-import { MovieOne } from 'src/app/models/movie';
+import { MovieOne } from 'src/app/models/movie/movie';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 

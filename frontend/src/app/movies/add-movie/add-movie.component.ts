@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/models/category/category';
 import { Router } from '@angular/router';
 
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { MoviesService } from 'src/app/services/movies/movies.service';
+import { Category } from 'src/app/models/category/category';
 
-import Movie, { MovieOne } from '../../models/movie';
+
+import { Movie, MovieOne } from 'src/app/models/movie/movie';
 
 @Component({
   selector: 'app-add-movie',

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies/movies.service';
 import { Route } from '@angular/router';
 
-import Movie from '../models/movie';
+import { Movie } from 'src/app/models/movie/movie';
 import { CategoriesService } from '../services/categories/categories.service';
-import { Category } from '../models/category/category';
+import { Category, CategoryOne } from 'src/app/models/category/category';
 
 @Component({
   selector: 'app-movies',
@@ -14,13 +14,15 @@ import { Category } from '../models/category/category';
 export class MoviesComponent implements OnInit {
 
   public movies: Movie[] = [];
-  public categories: Category[] = [];
+  public categories: Category = {id_categoria: 0, nombre_categoria: ""};
+
 
   constructor(private movieService: MoviesService, private categoryService: CategoriesService) {
-    this.getAllMovies();
+
   }
 
   ngOnInit(): void {
+    this.getAllMovies();
   }
 
   getAllMovies() {
@@ -32,10 +34,10 @@ export class MoviesComponent implements OnInit {
     }) ;
   }
 
-  getMovieCategory() {
-    this.categoryService.getCategory("1").subscribe(res => {
-      console.log(res);
-    }, err => console.error(err))
+  getMovieCategory(id: String) {
+    this.categoryService.getCategory(id).subscribe(res => {
+      this.categories = res;
+    }, err => console.error(err));
   }
 
   deleteMovie(id: String) {
